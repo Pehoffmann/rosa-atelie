@@ -1,69 +1,110 @@
 "use client";
 
-import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useState, useEffect, useRef } from "react";
+import { useIsMounted } from "@/lib/hooks";
+import { LottieWrapper } from "./LottieWrapper";
 
 export function Services() {
+  const [isVisible, setIsVisible] = useState(false);
+  const [showAnimation, setShowAnimation] = useState(false);
+  const isMounted = useIsMounted();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Delay para evitar conflitos de carregamento
+          setTimeout(() => {
+            setShowAnimation(true);
+          }, 300);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the section is visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [isMounted]);
+
   const services = [
     {
-      title: "Costura Sob Medida",
+      title: "Consertos de Roupas",
       description:
-        "Criação de peças exclusivas feitas especialmente para você, com medidas perfeitas e acabamento impecável.",
-      icon: "✂️",
-      features: [
-        "Roupas femininas",
-        "Roupas masculinas",
-        "Roupas infantis",
-        "Vestidos de festa",
-      ],
-    },
-    {
-      title: "Customização",
-      description:
-        "Transforme suas roupas antigas em peças modernas e estilosas com nossos serviços de customização.",
-      icon: "🎨",
-      features: [
-        "Bordados",
-        "Aplicações",
-        "Tingimento",
-        "Modificações de estilo",
-      ],
-    },
-    {
-      title: "Reparos e Ajustes",
-      description:
-        "Consertos profissionais e ajustes para que suas roupas favoritas voltem a ter o caimento perfeito.",
+        "Roupas rasgadas, danificadas ou que precisam de reforço. Restauramos suas peças favoritas com técnicas profissionais.",
       icon: "🔧",
       features: [
-        "Barra de calças",
-        "Ajuste de cintura",
-        "Troca de zíperes",
         "Remendos invisíveis",
+        "Reparo de rasgos",
+        "Reforço de costuras",
+        "Conserto de bolsos",
+      ],
+    },
+    {
+      title: "Ajustes Personalizados",
+      description:
+        "Ajustes em ombro, cintura, manga e caimento para que suas roupas tenham o encaixe perfeito no seu corpo.",
+      icon: "📏",
+      features: [
+        "Ajuste de cintura",
+        "Encurtamento de mangas",
+        "Ajuste de ombros",
+        "Modificação de caimento",
+      ],
+    },
+    {
+      title: "Bainhas, Zíperes e Barras",
+      description:
+        "Troca e instalação de zíper, encurtamento de barras e todos os ajustes necessários para o acabamento perfeito.",
+      icon: "🧵",
+      features: [
+        "Troca de zíperes",
+        "Barra de calças",
+        "Barra de vestidos",
+        "Instalação de botões",
       ],
     },
   ];
 
   return (
     <section
+      ref={sectionRef}
       id="servicos"
-      className="py-16 bg-white border-t border-[#382C1A]/10"
+      className="py-16 bg-[#F2F1ED] border-t border-[#382C1A]/10"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <div className="h-56 w-56">
-            <DotLottieReact
-              src="/animations/rose.lottie"
-              loop
-              autoplay
-              speed={0.5}
-              segment={[60, 200]}
-            />
+          <div className="h-56 w-56 mx-auto mb-8">
+            {isMounted && isVisible && showAnimation && (
+              <LottieWrapper
+                src="/animations/rose.lottie"
+                width={224}
+                height={224}
+                loop={false}
+                autoplay
+                speed={0.5}
+                segment={[60, 200]}
+              />
+            )}
           </div>
-          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl mb-4">
             Nossos Serviços
           </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
-            Oferecemos uma gama completa de serviços de costura e customização
-            para atender todas as suas necessidades.
+          <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+            Oferecemos uma gama completa de serviços de conserto e ajuste para
+            manter suas roupas sempre perfeitas.
           </p>
         </div>
 
@@ -103,7 +144,9 @@ export function Services() {
               </div>
               <div className="px-6 pb-6">
                 <a
-                  href="#contato"
+                  href="https://wa.me/5511982166060"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full bg-[#382C1A] text-white text-center py-2 px-4 rounded-md hover:bg-[#4a3a2a] transition-colors duration-200 inline-block"
                 >
                   Solicitar Orçamento

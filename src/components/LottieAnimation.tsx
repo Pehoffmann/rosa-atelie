@@ -1,6 +1,7 @@
 "use client";
 
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+import { useIsMounted } from "@/lib/hooks";
 
 interface LottieAnimationProps {
   src: string;
@@ -17,9 +18,18 @@ export function LottieAnimation({
   autoplay = true,
   className = "",
 }: LottieAnimationProps) {
+  const isMounted = useIsMounted();
+
   return (
     <div className={className}>
-      <DotLottieReact src={src} loop={loop} autoplay={autoplay} speed={speed} />
+      {isMounted && (
+        <DotLottieReact
+          src={src}
+          loop={loop}
+          autoplay={autoplay}
+          speed={speed}
+        />
+      )}
     </div>
   );
 }
