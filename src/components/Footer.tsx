@@ -1,7 +1,20 @@
+import Image from "next/image";
+
 export function Footer() {
   return (
-    <footer id="contato" className="bg-gray-900">
+    <footer id="contato" className="bg-[#382C1A]">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        {/* Logo no Footer */}
+        <div className="text-center mb-8">
+          <Image
+            src="/logo-rosa-sem-fundo.png"
+            alt="Rosa Ateliê Logo"
+            width={220}
+            height={80}
+            className="h-16 w-auto mx-auto brightness-0 invert"
+            priority
+          />
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Informações de Contato */}
           <div>

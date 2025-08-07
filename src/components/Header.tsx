@@ -1,16 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-sm border-b border-[#382C1A]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
-          <div className="flex justify-start lg:w-0 lg:flex-1">
-            <h1 className="text-2xl font-bold text-rose-600">Rosa Ateliê</h1>
+          <div className="flex lg:w-0 lg:flex-1">
+            <div className="flex items-center">
+              <Image
+                src="/logo-rosa-sem-fundo.png"
+                alt="Rosa Ateliê Logo"
+                width={350}
+                height={100}
+                className="h-20 w-auto"
+                priority
+              />
+            </div>
           </div>
 
           <div className="-mr-2 -my-2 md:hidden">
@@ -37,7 +47,7 @@ export function Header() {
             </button>
           </div>
 
-          <nav className="hidden md:flex space-x-10">
+          <nav className="hidden md:flex space-x-8">
             <a
               href="#inicio"
               className="text-base font-medium text-gray-500 hover:text-gray-900"
@@ -64,10 +74,10 @@ export function Header() {
             </a>
           </nav>
 
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+          <div className="hidden md:flex items-center justify-end">
             <a
               href="#contato"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700"
+              className="ml-6 whitespace-nowrap inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#382C1A] hover:bg-[#4a3a2a] transition-colors duration-200"
             >
               Fazer Orçamento
             </a>
@@ -80,9 +90,16 @@ export function Header() {
             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-2xl font-bold text-rose-600">
-                    Rosa Ateliê
-                  </h1>
+                  <div className="flex items-center">
+                    <Image
+                      src="/logo-rosa-sem-fundo.png"
+                      alt="Rosa Ateliê Logo"
+                      width={180}
+                      height={60}
+                      className="h-14 w-auto"
+                      priority
+                    />
+                  </div>
                   <div className="-mr-2">
                     <button
                       type="button"
@@ -147,7 +164,7 @@ export function Header() {
               <div className="py-6 px-5 space-y-6">
                 <a
                   href="#contato"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-rose-600 hover:bg-rose-700"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#382C1A] hover:bg-[#4a3a2a] transition-colors duration-200"
                 >
                   Fazer Orçamento
                 </a>

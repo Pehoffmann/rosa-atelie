@@ -1,3 +1,7 @@
+"use client";
+
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+
 export function Services() {
   const services = [
     {
@@ -39,9 +43,21 @@ export function Services() {
   ];
 
   return (
-    <section id="servicos" className="py-16 bg-white">
+    <section
+      id="servicos"
+      className="py-16 bg-white border-t border-[#382C1A]/10"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
+          <div className="h-56 w-56">
+            <DotLottieReact
+              src="/animations/rose.lottie"
+              loop
+              autoplay
+              speed={0.5}
+              segment={[60, 200]}
+            />
+          </div>
           <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             Nossos Serviços
           </h2>
@@ -70,7 +86,7 @@ export function Services() {
                       className="flex items-center text-sm text-gray-500"
                     >
                       <svg
-                        className="h-4 w-4 text-rose-500 mr-2"
+                        className="h-4 w-4 text-[#382C1A] mr-2"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                       >
@@ -88,7 +104,7 @@ export function Services() {
               <div className="px-6 pb-6">
                 <a
                   href="#contato"
-                  className="w-full bg-rose-600 text-white text-center py-2 px-4 rounded-md hover:bg-rose-700 transition-colors duration-200 inline-block"
+                  className="w-full bg-[#382C1A] text-white text-center py-2 px-4 rounded-md hover:bg-[#4a3a2a] transition-colors duration-200 inline-block"
                 >
                   Solicitar Orçamento
                 </a>

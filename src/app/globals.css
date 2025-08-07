@@ -1,21 +1,54 @@
 @import "tailwindcss";
 
+/* Carregamento da fonte TT Fors */
+@font-face {
+  font-family: "TT Fors";
+  src: url("/fonts/TT Fors Trial Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Fors";
+  src: url("/fonts/TT Fors Trial Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TT Fors";
+  src: url("/fonts/TT Fors Trial Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f1ed;
+  --foreground: #382c1a;
+  --primary: #382c1a;
+  --primary-light: #4a3a2a;
+  --background-off-white: #f2f1ed;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-background-off-white: var(--background-off-white);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-tt-fors: var(--font-tt-fors);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-tt-fors), var(--font-geist-sans), ui-sans-serif,
+    system-ui, sans-serif;
 }
 
 /* Smooth scrolling for anchor links */
@@ -33,10 +66,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #e11d48;
+  background: #382c1a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #be185d;
+  background: #4a3a2a;
 }

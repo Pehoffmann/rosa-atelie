@@ -12,6 +12,15 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// Configuração da fonte TT Fors (será carregada quando as fontes estiverem disponíveis)
+const ttFors = {
+  variable: "--font-tt-fors",
+  style: {
+    fontFamily:
+      "TT Fors, var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif",
+  },
+};
+
 export const metadata: Metadata = {
   title: "Rosa Ateliê",
   description:
@@ -26,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${ttFors.variable} antialiased`}
       >
         {children}
       </body>
