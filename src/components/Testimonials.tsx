@@ -53,7 +53,7 @@ export function Testimonials() {
 
               {/* Texto do depoimento */}
               <blockquote className="text-gray-700 text-center mb-4 italic">
-                "{testimonial.text}"
+                &ldquo;{testimonial.text}&rdquo;
               </blockquote>
 
               {/* Autor */}
