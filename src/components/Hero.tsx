@@ -1,49 +1,31 @@
 "use client";
 
-import { useIsMounted } from "@/lib/hooks";
 import { LottieWrapper } from "./LottieWrapper";
-import { useState, useEffect } from "react";
+import { StitchLine } from "./StitchLine";
 
 export function Hero() {
-  const isMounted = useIsMounted();
-  const [showAnimation, setShowAnimation] = useState(false);
-
-  useEffect(() => {
-    if (isMounted) {
-      // Delay para evitar conflitos de carregamento
-      const timer = setTimeout(() => {
-        setShowAnimation(true);
-      }, 500);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isMounted]);
+  // A animação agora reserva espaço desde o início via LottieWrapper,
+  // evitando layout shift sem necessidade de delays.
 
   return (
     <section
       id="inicio"
-      className="relative bg-gradient-to-r from-[#F2F1ED] to-white py-16 sm:py-24"
+      className="relative bg-gradient-to-r from-[#F2F1ED] to-white pb-16 sm:pb-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Logo no Hero */}
-          <div className="flex justify-center mb-8">
-            <div className="transform scale-75">
-              {showAnimation && (
-                <LottieWrapper
-                  src="/animations/tools.lottie"
-                  width={256}
-                  height={256}
-                  loop={true}
-                  autoplay
-                  speed={0.5}
-                />
-              )}
-            </div>
+          <div className="flex justify-center">
+            <LottieWrapper
+              src="/animations/tools.lottie"
+              width={192}
+              height={192}
+              loop={true}
+              autoplay
+              speed={0.5}
+            />
           </div>
-
           {/* Frase de impacto */}
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
+          <h1 className="-mt-10 text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
             <span className="block">Costura com cuidado</span>
             <span className="block text-[#382C1A]">em cada detalhe</span>
           </h1>
@@ -98,25 +80,19 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 -mt-4 -mr-4 hidden lg:block">
-        <svg
-          className="h-32 w-32 text-[#382C1A]/20"
-          fill="currentColor"
-          viewBox="0 0 84 84"
-        >
-          <circle opacity="0.25" cx="42" cy="42" r="42" />
-        </svg>
-      </div>
-      <div className="absolute bottom-0 left-0 -mb-4 -ml-4 hidden lg:block">
-        <svg
-          className="h-24 w-24 text-[#382C1A]/15"
-          fill="currentColor"
-          viewBox="0 0 84 84"
-        >
-          <circle opacity="0.25" cx="42" cy="42" r="42" />
-        </svg>
-      </div>
+      {/* Elementos decorativos (linhas de costura) */}
+      <StitchLine
+        className="absolute top-2 right-2 hidden lg:block w-44 h-12 rotate-3"
+        opacity={0.2}
+        variant="zigzag"
+        strokeWidth={1.25}
+      />
+      <StitchLine
+        className="absolute bottom-2 left-2 hidden lg:block w-36 h-12 -rotate-3"
+        opacity={0.14}
+        variant="running"
+        strokeWidth={1.25}
+      />
     </section>
   );
 }

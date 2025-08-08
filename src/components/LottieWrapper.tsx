@@ -58,28 +58,20 @@ export function LottieWrapper({
     }
   };
 
-  // Don't render anything if there's an error and no more retries
-  if (hasError && retryCount >= 1) {
-    return null;
-  }
-
-  // Don't render anything while loading
-  if (!isLoaded) {
-    return null;
-  }
-
   return (
     <div className={className} style={{ width, height }}>
-      <DotLottieReact
-        src={src}
-        loop={loop}
-        autoplay={autoplay}
-        speed={speed}
-        segment={segment}
-        onError={handleError}
-        style={{ width: "100%", height: "100%" }}
-        key={`${src}-${retryCount}`}
-      />
+      {(!hasError || retryCount < 1) && isLoaded && (
+        <DotLottieReact
+          src={src}
+          loop={loop}
+          autoplay={autoplay}
+          speed={speed}
+          segment={segment}
+          onError={handleError}
+          style={{ width: "100%", height: "100%" }}
+          key={`${src}-${retryCount}`}
+        />
+      )}
     </div>
   );
 }

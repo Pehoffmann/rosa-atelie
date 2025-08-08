@@ -1,4 +1,5 @@
 "use client";
+import { StitchLine } from "./StitchLine";
 
 export function About() {
   return (
@@ -21,15 +22,15 @@ export function About() {
             <div className="grid grid-cols-2 gap-6 mt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#382C1A] mb-2">
-                  10+
+                  30+
                 </div>
                 <div className="text-sm text-gray-600">Anos de experiência</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-[#382C1A] mb-2">
-                  1000+
+                  5000+
                 </div>
-                <div className="text-sm text-gray-600">Clientes atendidos</div>
+                <div className="text-sm text-gray-600">Peças restauradas</div>
               </div>
             </div>
 
@@ -121,10 +122,23 @@ export function About() {
                 </p>
               </div>
             </div>
-
-            {/* Elementos decorativos */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#382C1A]/10 rounded-full"></div>
-            <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#382C1A]/5 rounded-full"></div>
+            {/* Elementos decorativos (linhas de costura) */}
+            <div className="pointer-events-none" aria-hidden>
+              {/* canto superior direito: zigue-zague mais marcante */}
+              <StitchLine
+                className="absolute -top-5 -right-4 rotate-6 w-28 h-12"
+                opacity={0.22}
+                variant="zigzag"
+                strokeWidth={1.25}
+              />
+              {/* canto inferior esquerdo: alinhavo leve em L */}
+              <StitchLine
+                className="absolute -bottom-6 -left-6 -rotate-3 w-24 h-12"
+                opacity={0.16}
+                variant="corner"
+                strokeWidth={1.25}
+              />
+            </div>
           </div>
         </div>
       </div>
