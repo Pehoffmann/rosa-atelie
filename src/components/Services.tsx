@@ -24,7 +24,7 @@ export function Services() {
         }
       },
       {
-        threshold: 0.3, // Trigger when 30% of the section is visible
+        threshold: 0.02, // Dispara quando ~2% da seção estiver visível
       }
     );
 
