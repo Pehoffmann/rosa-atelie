@@ -104,8 +104,9 @@ export function Services() {
             Nossos Serviços
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
-            Oferecemos uma gama completa de serviços de conserto e ajuste para
-            manter suas roupas sempre perfeitas.
+            Consertamos e ajustamos suas peças com atenção e carinho, para que
+            continuem fazendo parte da sua história e se moldem perfeitamente a
+            você.
           </p>
         </div>
 

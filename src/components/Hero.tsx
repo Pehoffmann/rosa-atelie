@@ -45,8 +45,7 @@ export function Hero() {
 
           <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl mb-8">
             O Rosa Balan Ateliê é especializado em consertos de roupas com
-            atenção aos mínimos detalhes. Cada peça recebe o cuidado como se
-            fosse única.
+            atenção aos mínimos detalhes.
           </p>
 
           {/* Botões de CTA */}

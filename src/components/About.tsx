@@ -12,10 +12,11 @@ export function About() {
               Sobre o Rosa Balan Ateliê
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              O Rosa Balan Ateliê é especializado em consertos de roupas com
-              atenção aos mínimos detalhes. Cada peça recebe o cuidado como se
-              fosse única. Seja um ajuste simples ou uma reforma completa, seu
-              vestuário está em boas mãos.
+              O Rosa Balan Ateliê é especializado em consertos de roupas,
+              cuidando de cada detalhe com atenção e delicadeza. <br /> Cada
+              peça é tratada como única, recebendo o cuidado que merece. Seja
+              para um ajuste simples ou uma transformação completa, a sua roupa
+              estará sempre em boas mãos.
             </p>
 
             {/* Destaques de experiência */}
@@ -117,8 +118,9 @@ export function About() {
                   Ambiente de Trabalho
                 </h3>
                 <p className="text-gray-600">
-                  Nosso ateliê é equipado com as melhores ferramentas e
-                  materiais para garantir resultados perfeitos em cada trabalho.
+                  Nosso ateliê conta com diversas máquinas, ferramentas de
+                  excelência e materiais de alta qualidade para garantir grandes
+                  resultados em cada trabalho.
                 </p>
               </div>
             </div>
