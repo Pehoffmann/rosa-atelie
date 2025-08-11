@@ -1,7 +1,7 @@
 "use client";
 
 import { LottieWrapper } from "./LottieWrapper";
-import { StitchLine } from "./StitchLine";
+import Image from "next/image";
 
 export function Hero() {
   // A animação agora reserva espaço desde o início via LottieWrapper,
@@ -80,18 +80,22 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Elementos decorativos (linhas de costura) */}
-      <StitchLine
-        className="absolute top-2 right-2 hidden lg:block w-44 h-12 rotate-3"
-        opacity={0.2}
-        variant="zigzag"
-        strokeWidth={1.25}
+      {/* Elementos decorativos (imagem de recorte no lugar das linhas) */}
+      <Image
+        src="/recorte-fundo-2.png"
+        alt="Decoração"
+        width={176}
+        height={48}
+        className="absolute top-0 -right-25 hidden lg:block rotate-300 opacity-20"
+        priority
       />
-      <StitchLine
-        className="absolute bottom-2 left-2 hidden lg:block w-36 h-12 -rotate-3"
-        opacity={0.14}
-        variant="running"
-        strokeWidth={1.25}
+      <Image
+        src="/recorte-fundo-2.png"
+        alt="Decoração"
+        width={144}
+        height={48}
+        className="absolute bottom-0 -left-20 hidden lg:block rotate-120 opacity-20"
+        priority
       />
     </section>
   );

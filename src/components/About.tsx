@@ -126,16 +126,16 @@ export function About() {
             <div className="pointer-events-none" aria-hidden>
               {/* canto superior direito: zigue-zague mais marcante */}
               <StitchLine
-                className="absolute -top-5 -right-4 rotate-6 w-28 h-12"
+                className="absolute -top-3 -right-6 rotate-40 w-24 h-12"
                 opacity={0.22}
                 variant="zigzag"
                 strokeWidth={1.25}
               />
               {/* canto inferior esquerdo: alinhavo leve em L */}
               <StitchLine
-                className="absolute -bottom-6 -left-6 -rotate-3 w-24 h-12"
+                className="absolute -bottom-3 -left-6 -rotate-140 w-24 h-12"
                 opacity={0.16}
-                variant="corner"
+                variant="zigzag"
                 strokeWidth={1.25}
               />
             </div>

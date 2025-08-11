@@ -26,24 +26,44 @@ export function Header() {
           <div className="-mr-2 -my-2 md:hidden">
             <button
               type="button"
+              aria-expanded={isMenuOpen}
               className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
-              <span className="sr-only">Abrir menu</span>
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <span className="sr-only">
+                {isMenuOpen ? "Fechar menu" : "Abrir menu"}
+              </span>
+              {isMenuOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
             </button>
           </div>
 
@@ -97,29 +117,6 @@ export function Header() {
         {isMenuOpen && (
           <div className="md:hidden w-full border-t border-gray-100 bg-white">
             <div className="px-4 sm:px-6 lg:px-8 py-4">
-              <div className="flex items-center justify-end">
-                <button
-                  type="button"
-                  className="rounded-md p-2 inline-flex items-center justify-center text-gray-500 hover:text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-rose-500"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className="sr-only">Fechar menu</span>
-                  <svg
-                    className="h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
               <nav className="mt-2 grid gap-y-2">
                 <a
                   href="#inicio"
